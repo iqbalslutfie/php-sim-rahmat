@@ -29,9 +29,9 @@
                     </div>
 
                     <!-- Content Row -->
-                    <div class="container row">
-                        <div class="col-12">
-                            <div class="card">
+                    <div class="container row-12">
+                        <div class="col">
+                            <div class="card mb-5">
                                 <div class="card-header">
                                     <div class="nav-item">
                                         <a href="tambah-pengguna.php" class="btn btn-sm btn-primary">Tambah Data</a>
@@ -42,25 +42,49 @@
                                         <thead class="thead-light text-center">
                                             <tr>
                                                 <th width=6%>No</th>
+                                                <th>Nama</th>
                                                 <th>Username</th>
                                                 <th>Password</th>
                                                 <th>Email</th>
-                                                <th>Role</th>
+                                                <th>Level</th>
                                                 <th width=16%></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td class="text-center">1</td>
-                                                <td>2</td>
-                                                <td>3</td>
-                                                <td>4</td>
-                                                <td class="text-center">5</td>
-                                                <td class="text-center">
-                                                    <a href="#" class="btn btn-sm btn-info">Edit</a> |
-                                                    <a href="#" class="btn btn-sm btn-danger">Hapus</a>
-                                                </td>
-                                            </tr>
+                                            <?php
+                                            include "../../koneksi.php";
+
+                                            $no = 1;
+                                            $data = mysqli_query($koneksi, "SELECT * FROM pengguna");
+                                            if (mysqli_num_rows($data) == 0) {
+                                            ?>
+                                                <tr>
+                                                    <td colspan="7" class="text-center font-weight-bold">Data Kosong</td>
+                                                </tr>
+                                                <?php
+                                            } else {
+                                                while ($item = mysqli_fetch_array($data)) {
+                                                ?>
+                                                    <tr>
+                                                        <td class="text-center"><?php echo $no++; ?></td>
+                                                        <td><?php echo $item['nama']; ?></td>
+                                                        <td><?php echo $item['username']; ?></td>
+                                                        <td><?php echo $item['password']; ?></td>
+                                                        <td><?php echo $item['email']; ?></td>
+                                                        <td><?php echo $item['level']; ?></td>
+                                                        <td class="text-center">
+                                                            <a href="edit.php?id=<?php echo $item['id'] ?>" class="btn btn-info btn-sm mx-1 float-left">Ubah</a>
+
+                                                            <form action="delete.php?id=<?php echo $item['id'] ?>" method="post">
+                                                                <button type="submit" class="btn btn-danger btn-sm mx-1 float-left">Hapus</button>
+                                                            </form>
+                                                        </td>
+                                                    </tr>
+
+                                            <?php
+                                                }
+                                            }
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>

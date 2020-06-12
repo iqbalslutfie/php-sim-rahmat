@@ -1,54 +1,66 @@
 <?php
-// mengaktifkan session pada php
 session_start();
 
-// menghubungkan php dengan koneksi database
-include 'koneksi.php';
+include "koneksi.php";
 
-// menangkap data yang dikirim dari form login
-$email = $_POST['email'];
+$username = $_POST['username'];
 $password = $_POST['password'];
 
+$login = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE username='$username' and password='$password'");
 
-// menyeleksi data user dengan username dan password yang sesuai
-$login = mysqli_query($koneksi, "select * from pengguna where email='$email' and password='$password'");
-// menghitung jumlah data yang ditemukan
 $cek = mysqli_num_rows($login);
 
-// cek apakah username dan password di temukan pada database
 if ($cek > 0) {
-
     $data = mysqli_fetch_assoc($login);
 
-    // cek jika user login sebagai admin
-    if ($data['role'] == "admin") {
-
-        // buat session login dan username
+    //jika login sebagai admin
+    if ($data['level'] == "manajer") {
+        //buat session
         $_SESSION['username'] = $username;
-        $_SESSION['role'] = "admin";
-        // alihkan ke halaman dashboard admin
-        header("location:index.php");
+        $_SESSION['level'] = "manajer";
 
-        // cek jika user login sebagai manajer
-    } else if ($data['role'] == "manajer") {
-        // buat session login dan username
+        //alihkan
+        header("location:manajer/");
+    } else if ($data['level'] == "admin") {
+        //buat session
         $_SESSION['username'] = $username;
-        $_SESSION['role'] = "manajer";
-        // alihkan ke halaman dashboard manajer
-        header("location:pages/admin/manajer.php");
+        $_SESSION['level'] = "admin";
 
-        // cek jika user login sebagai gudang
-    } else if ($data['role'] == "gudang") {
-        // buat session login dan username
+        //alihkan
+        header("location:pages/admin/");
+    } else if ($data['level'] == "gudang") {
+        //buat session
         $_SESSION['username'] = $username;
-        $_SESSION['role'] = "gudang";
-        // alihkan ke halaman dashboard gudang
-        header("location:pages/admin/gudang.php");
+        $_SESSION['level'] = "gudang";
+
+        //alihkan
+        header("location:gudang/");
+    } else if ($data['level'] == "produksi") {
+        //buat session
+        $_SESSION['username'] = $username;
+        $_SESSION['level'] = "produksi";
+
+        //alihkan
+        header("location:produksi/");
+    } else if ($data['level'] == "admin") {
+        //buat session
+        $_SESSION['username'] = $username;
+        $_SESSION['level'] = "admin";
+
+        //alihkan
+        header("location:pages/admin/");
+    } else if ($data['level'] == "marketing") {
+        //buat session
+        $_SESSION['username'] = $username;
+        $_SESSION['level'] = "marketing";
+
+        //alihkan
+        header("location:marketing/");
     } else {
 
         // alihkan ke halaman login kembali
-        header("location:index.php?pesan=gagal");
+        header("location:../../index.php?pesan=gagal");
     }
 } else {
-    header("location:index.php?pesan=gagal");
+    header("location:../../index.php?pesan=gagal");
 }

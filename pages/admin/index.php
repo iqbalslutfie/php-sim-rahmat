@@ -8,12 +8,12 @@
 <body id="page-top">
 
     <?php
-    //session_start();
+    session_start();
 
-    // cek apakah yang mengakses halaman ini sudah login
-    // if ($_SESSION['role'] == "") {
-    //     header("location:../../index.php?pesan=gagal");
-    // }
+    //cek apakah yang mengakses halaman ini sudah login
+    if ($_SESSION['level'] == "") {
+        header("location:../../index.php?pesan=gagal");
+    }
 
     ?>
 
@@ -35,7 +35,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Beranda</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -153,7 +153,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="../../logout.php">Logout</a>
                 </div>
             </div>
         </div>

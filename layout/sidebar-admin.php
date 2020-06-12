@@ -10,10 +10,10 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
+    <li class="nav-item">
         <a class="nav-link" href="index.php">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
+            <span>Beranda</span></a>
     </li>
 
     <!-- Divider -->
@@ -33,7 +33,7 @@
     <hr class="sidebar-divider my-0">
 
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="../../logout.php" data-toggle="modal" data-target="#logoutModal">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Logout</span></a>
     </li>

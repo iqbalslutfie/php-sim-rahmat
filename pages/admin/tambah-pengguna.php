@@ -36,40 +36,39 @@
                                 </div>
                                 <div class="card-body">
                                     <!-- Content -->
-                                    <form action="tambah-pengguna-proses.php" method="POST">
+                                    <form action="tambah-pengguna-proses.php" method="post">
                                         <div class="form-group">
-                                            <label for="username">Username</label>
-                                            <input type="text" class="form-control" id="username" placeholder="Isikan Username Anda" required>
+                                            <label for="nama">Nama</label>
+                                            <input type="text" name="nama" id="nama" placeholder="Isikan Nama Anda" class="form-control" required />
                                         </div>
                                         <div class="form-group">
-                                            <label for="email">Email</label>
-                                            <input type="email" class="form-control" id="email" placeholder="username@contoh.com">
+                                            <label for="username">Username</label>
+                                            <input type="text" name="username" id="username" placeholder="Isikan Username Anda" class="form-control" required />
                                         </div>
                                         <div class="form-group">
                                             <label for="password">Password</label>
-                                            <input type="password" class="form-control" id="password" placeholder="Isikan Password Anda" required>
-                                            <small id="passwordHelpInline" class="text-muted">
-                                                Must be 8-20 characters long.
-                                            </small>
+                                            <input type="password" name="password" id="password" placeholder="Isikan Password Anda" class="form-control" required />
                                         </div>
                                         <div class="form-group">
-                                            <label for="ulangipassword">Ulangi Password</label>
-                                            <input type="password" class="form-control" id="ulangipassword" placeholder="Isikan Password Anda" required>
-                                            <small id="passwordHelpInline" class="text-muted">
-                                                Must be 8-20 characters long.
-                                            </small>
+                                            <label for="email">Email</label>
+                                            <input type="email" name="email" id="email" placeholder="Isikan Email Anda" class="form-control" required />
                                         </div>
                                         <div class="form-group">
-                                            <label for="role">Role</label>
-                                            <select class="form-control custom-select my-1 mr-sm-2" id="role">
-                                                <option></option>
-                                                <option>Admin</option>
-                                                <option>Manajer</option>
-                                                <option>Gudang</option>
+                                            <label for="level">Level</label>
+                                            <select name="level" id="level" class="custom-select">
+                                                <option selected disabled value="">Pilih Level :</option>
+                                                <option value="manajer">Manajer</option>
+                                                <option value="kepala gudang">Kepala Gudang</option>
+                                                <option value="pemasaran">Pemasaran</option>
+                                                <option value="produksi">Produksi</option>
+                                                <option value="admin">Admin</option>
                                             </select>
                                         </div>
-                                        <input type="submit" class="btn btn-primary" value="Simpan">
-                                        <input type="submit" class="btn btn-secondary" value="Reset">
+
+                                        <hr>
+                                        <div class="form-group">
+                                            <input type="submit" class="btn btn-primary" value="Simpan" />
+                                        </div>
                                     </form>
                                     <!-- End Content -->
                                 </div>
