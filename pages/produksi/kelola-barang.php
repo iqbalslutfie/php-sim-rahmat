@@ -13,7 +13,7 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <?php include '../../layout/sidebar-admin.php' ?>
+        <?php include '../../layout/sidebar-produksi.php' ?>
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -28,7 +28,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Kelola Pengguna</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Kelola barang</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -37,7 +37,7 @@
                             <div class="card mb-5">
                                 <div class="card-header">
                                     <div class="nav-item">
-                                        <a href="tambah-pengguna.php" class="btn btn-sm btn-primary">Tambah Data</a>
+                                        <a href="tambah-barang.php" class="btn btn-sm btn-primary">Tambah Data</a>
                                     </div>
                                 </div>
                                 <div class="card-body">
@@ -47,10 +47,8 @@
                                                 <tr>
                                                     <th width=6%>No</th>
                                                     <th>Nama</th>
-                                                    <th>Username</th>
-                                                    <th>Password</th>
-                                                    <th>Email</th>
-                                                    <th>Level</th>
+                                                    <th>Harga</th>
+                                                    <th>Jumlah</th>
                                                     <th width=18%></th>
                                                 </tr>
                                             </thead>
@@ -59,7 +57,7 @@
                                                 include "../../koneksi.php";
 
                                                 $no = 1;
-                                                $data = mysqli_query($koneksi, "SELECT * FROM pengguna");
+                                                $data = mysqli_query($koneksi, "SELECT * FROM barang");
                                                 if (mysqli_num_rows($data) == 0) {
                                                     ?>
                                                     <tr>
@@ -72,14 +70,12 @@
                                                         <tr>
                                                             <td class="text-center"><?php echo $no++; ?></td>
                                                             <td><?php echo $item['nama']; ?></td>
-                                                            <td><?php echo $item['username']; ?></td>
-                                                            <td><?php echo $item['password']; ?></td>
-                                                            <td><?php echo $item['email']; ?></td>
-                                                            <td><?php echo $item['level']; ?></td>
+                                                            <td><?php echo "Rp. " . $item['harga']; ?></td>
+                                                            <td class="text-center"><?php echo $item['jumlah']; ?></td>
                                                             <td class="text-center">
-                                                                <a href="ubah-pengguna.php?id=<?php echo $item['id'] ?>" class="btn btn-info btn-sm mx-1 float-left">Ubah</a>
+                                                                <a href="ubah-barang.php?id=<?php echo $item['id'] ?>" class="btn btn-info btn-sm mx-1 float-left">Ubah</a>
 
-                                                                <form action="hapus-pengguna.php?id=<?php echo $item['id'] ?>" method="post">
+                                                                <form action="hapus-barang.php?id=<?php echo $item['id'] ?>" method="post">
                                                                     <button type="submit" class="btn btn-danger btn-sm mx-1 float-left">Hapus</button>
                                                                 </form>
                                                             </td>

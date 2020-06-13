@@ -25,9 +25,9 @@
     </div>
 
     <li class="nav-item">
-        <a class="nav-link" href="kelola-pengguna.php">
+        <a class="nav-link" href="kelola-barang.php">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Kelola Pengguna</span></a>
+            <span>Kelola Barang</span></a>
     </li>
 
     <hr class="sidebar-divider my-0">

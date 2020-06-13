@@ -13,7 +13,7 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <?php include '../../layout/sidebar-admin.php' ?>
+        <?php include '../../layout/sidebar-produksi.php' ?>
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -28,7 +28,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Tambah Pengguna</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Tambah barang</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -39,33 +39,18 @@
                                 </div>
                                 <div class="card-body">
                                     <!-- Content -->
-                                    <form action="tambah-pengguna-proses.php" method="post">
+                                    <form action="tambah-barang-proses.php" method="post">
                                         <div class="form-group">
                                             <label for="nama">Nama</label>
-                                            <input type="text" name="nama" id="nama" placeholder="Isikan Nama Anda" class="form-control" required />
+                                            <input type="text" name="nama" id="nama" placeholder="Isikan Nama Barang" class="form-control" required />
                                         </div>
                                         <div class="form-group">
-                                            <label for="username">Username</label>
-                                            <input type="text" name="username" id="username" placeholder="Isikan Username Anda" class="form-control" required />
+                                            <label for="harga">Harga</label>
+                                            <input type="text" name="harga" id="harga" placeholder="Isikan Harga (Rp.)" class="form-control" required />
                                         </div>
                                         <div class="form-group">
-                                            <label for="password">Password</label>
-                                            <input type="password" name="password" id="password" placeholder="Isikan Password Anda" class="form-control" required />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email">Email</label>
-                                            <input type="email" name="email" id="email" placeholder="Isikan Email Anda" class="form-control" required />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="level">Level</label>
-                                            <select name="level" id="level" class="custom-select">
-                                                <option selected disabled value="">Pilih Level :</option>
-                                                <option value="manajer">Manajer</option>
-                                                <option value="kepala gudang">Kepala Gudang</option>
-                                                <option value="pemasaran">Pemasaran</option>
-                                                <option value="produksi">Produksi</option>
-                                                <option value="admin">Admin</option>
-                                            </select>
+                                            <label for="jumlah">Jumlah</label>
+                                            <input type="text" name="jumlah" id="jumlah" placeholder="Isikan Jumlah Barang" class="form-control" required />
                                         </div>
 
                                         <hr>
